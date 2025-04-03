@@ -1,0 +1,43 @@
+After complete the all file
+
+commands:--> (1) docker compose up --build #first time we need to execute this command.
+
+            #if we made any change in this docker file then we just need to run this command.
+            (2) docker compose up
+
+__________________________________________________________________________________________________________________________________________________________
+            (for development side code execute)
+            --> This is for execute development side project and when we make chanegs it can handle.but, it execute docker-compose.development.yaml file.
+            (3) docker compose -f docker-compose.development.yaml up --build
+            
+            file name ::--> docker-compose.development.yaml
+__________________________________________________________________________________________________________________________________________________________
+            (for staging side code execute)
+            --> This is for execute staging side project and we can not make chanegs on it.it execute docker-compose.staging.yaml file.
+            (4) docker compose -f docker-compose.staging.yaml up --build
+            
+            file name ::--> docker-compose.staging.yaml
+__________________________________________________________________________________________________________________________________________________________
+            (for production side code execute)
+            --> This is for execute production side project and we can not make chanegs on it.it execute docker-compose.production.yaml file.
+            (5) docker compose -f docker-compose.production.yaml up --build -d
+            
+            file name ::--> docker-compose.production.yaml
+__________________________________________________________________________________________________________________________________________________________
+
+#deploy fastapi project on cloud run
+    
+    #before execute this file. Go to chrome's docker hub (https://hub.docker.com/repository) website then create new repositories and give name anything.
+    (I have given (fastapi-project) name in this project).and krushil363 is the namespace.
+
+---> (cmd)  1 - docker build -t krushil363/fastapi-project:1.0.0 .
+            2 - docker login
+            3 - docker push krushil363/fastapi-project:1.0.0
+
+
+    #now reload the docker hub website.
+
+    #Go to this website https://console.cloud.google.com/run/create
+    
+    fill some data and give production.env data in above website.then hit create button in order to deploy project.
+__________________________________________________________________________________________________________________________________________________________
