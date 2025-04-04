@@ -9,3 +9,7 @@ def hello():
 @app.get("/hello")
 def helloOne(name: str):
     return {"welcome": "welcome, " + name + "!!! secret = " + env['MY_VARIABLE']}
+
+@app.get("/hello/{id}")
+def helloOne(name: str,id: int):
+    return {"welcome": "welcome, " + name + "!!! secret = " + env['MY_VARIABLE'],"id":id}
